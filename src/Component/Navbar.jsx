@@ -49,7 +49,7 @@ return (
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+            <NavLink className="btn" to="/register">Register</NavLink>
             </div>
       </div>
     );

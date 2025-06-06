@@ -7,6 +7,7 @@ import RootLayOut from '../layOut/RootLayOut';
 import Home from '../Pages/Home';
 import AddFood from '../Pages/AddFood';
 import Gallery from '../Pages/Gallery';
+import Register from '../Pages/Register';
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
             {
                 index: true, 
                 element: <Home></Home>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             },
             {
                 path: 'addFoods',
