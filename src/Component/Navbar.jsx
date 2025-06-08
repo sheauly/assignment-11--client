@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
-
+    const { user, logOut } = use(AuthContext)
+    
+    const handleLogout = () => {
+        logOut()
+            .then(() => toast.success("Logged out successfully"))
+            .catch((error) => toast.error(error.message));
+    };
     const Links = <>
             <li>
                 <NavLink to="/" className={({ isActive }) =>
@@ -49,7 +57,13 @@ return (
                 </ul>
             </div>
             <div className="navbar-end">
-            <NavLink className="btn" to="/register">Register</NavLink>
+            {
+                user ? <button onClick={handleLogout} className='btn'>Log Out</button> :
+                    <>
+                    <NavLink className="btn" to="/register">Register</NavLink>
+                    <NavLink className="btn" to="/login">Login</NavLink>
+                    </>
+            }
             </div>
       </div>
     );
