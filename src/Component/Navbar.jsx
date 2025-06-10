@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -56,14 +56,22 @@ return (
                     {Links}
                 </ul>
             </div>
-            <div className="navbar-end">
-            {
-                user ? <button onClick={handleLogout} className='btn'>Log Out</button> :
-                    <>
-                    <NavLink className="btn" to="/register">Register</NavLink>
-                    <NavLink className="btn" to="/login">Login</NavLink>
-                    </>
-            }
+            <div className="navbar-end gap-4">
+            {user ? (
+                <>
+                    <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                        <img src={user.photoURL} alt="User" className="w-10 h-10 rounded-full ring-2 ring-green-600" />
+                    </div>
+                    <button onClick={handleLogout} className="btn btn-outline text-green-700 hover:btn-success">
+                        Logout
+                    </button>
+                </>
+            ) : (
+                <>
+                    <Link to="/login" className="btn btn-outline text-green-700">Login</Link>
+                    <Link to="/register" className="btn btn-outline text-green-700">Register</Link>
+                </>
+            )}
             </div>
       </div>
     );
