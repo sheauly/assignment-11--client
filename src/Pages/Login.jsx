@@ -21,8 +21,8 @@ const Login = () => {
                 .then(result => {
                     if (result) {
                         Swal.fire({
-                            title: "Deleted!",
-                            text: "Your listing has been deleted.",
+                            title: "Successfull",
+                            text: "Your listing has been Successfully.",
                             icon: "success"
                         });
 

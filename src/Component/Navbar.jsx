@@ -18,9 +18,9 @@ const Navbar = () => {
                 }>Home</NavLink>
             </li>
             <li>
-                <NavLink to="/addFoods" className={({ isActive }) =>
+            <NavLink to="/allFoods" className={({ isActive }) =>
                     isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"
-                }>AddFoods</NavLink>
+                }>AllFoods</NavLink>
             </li>
             <li>
                 <NavLink to="gallery" className={({ isActive }) =>
@@ -28,10 +28,11 @@ const Navbar = () => {
                 }>Gellery</NavLink>
             </li>
             <li>
-                <NavLink to="" className={({ isActive }) =>
+                <NavLink to="/addFood" className={({ isActive }) =>
                     isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"
-                }></NavLink>
-            </li>
+                }>AddFood</NavLink>
+        </li>
+        
         </>
 return (
         <div className="navbar bg-base-100 shadow-sm">

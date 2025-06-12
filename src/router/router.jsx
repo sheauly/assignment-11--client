@@ -5,10 +5,13 @@ import {
 } from "react-router";
 import RootLayOut from '../layOut/RootLayOut';
 import Home from '../Pages/Home';
-import AddFood from '../Pages/AddFood';
 import Gallery from '../Pages/Gallery';
 import Register from '../Pages/Register';
 import Login from '../Pages/Login';
+import FoodPage from '../Pages/FoodPage';
+import AllFoods from '../Pages/AllFoods';
+import AddFood from '../Pages/AddFood';
+
 
 const router = createBrowserRouter([
     {
@@ -27,15 +30,25 @@ const router = createBrowserRouter([
                 path: '/login',
                 element: <Login></Login>
             },
-            {
-                path: 'addFoods',
-                element: <AddFood></AddFood>
-            },
+            
             {
                 path: 'gallery',
                 element: <Gallery></Gallery>
-            }
-        ]
+            },
+            {
+                path: '/allFoods',
+                element: <AllFoods></AllFoods>
+            },
+            {
+                path: '/addFood',
+                element: <AddFood></AddFood>
+            },
+            {
+                path: '/foodPage/:id',
+                element: <FoodPage></FoodPage>,
+                loader: ({params}) => fetch(`http://localhost:3000/resturent/${params.id}`)
+            },
+           ]
     },
 ]);
   
