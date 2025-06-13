@@ -25,15 +25,12 @@ const Gallery = () => {
         <div>
             {/* Page Title Banner */}
             <div
-                className="relative h-60 md:h-80 bg-cover bg-center flex items-center justify-center"
+                className="relative h-60 md:h-150 bg-cover bg-center flex items-center text-white justify-center"
                 style={{
                     backgroundImage: "url('https://i.ibb.co/1tg4yZf2/healthy-food-concept-banner-template-23-2148811873.jpg')"
                 }}
             >
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-                <h1 className="relative text-white text-4xl md:text-5xl font-bold z-10">
-                    Gallery
-                </h1>
+              
             </div>
 
             {/* Gallery Section */}

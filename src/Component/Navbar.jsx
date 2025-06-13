@@ -1,10 +1,28 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext)
+
+    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+
+    const handleToggle = (e) => {
+        if (e.target.checked) {
+            setTheme("dark");
+        }
+        else {
+            setTheme("light");
+        }
+    }
+
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+        const localTheme = localStorage.getItem("theme");
+        document.querySelector("html").setAttribute("data-theme", localTheme);
+
+    }, [theme]);
     
     const handleLogout = () => {
         logOut()
@@ -58,7 +76,7 @@ return (
                 </ul>
             </div>
         <div className="navbar-end gap-4">
-            <input type="checkbox" defaultChecked className="toggle toggle-warning" />
+            <input onChange={handleToggle} type="checkbox" defaultChecked className="toggle toggle-warning" />
             {user ? (
                 <>
                     <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
