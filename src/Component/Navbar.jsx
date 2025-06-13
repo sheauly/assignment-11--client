@@ -57,7 +57,8 @@ return (
                     {Links}
                 </ul>
             </div>
-            <div className="navbar-end gap-4">
+        <div className="navbar-end gap-4">
+            <input type="checkbox" defaultChecked className="toggle toggle-warning" />
             {user ? (
                 <>
                     <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
@@ -68,7 +69,8 @@ return (
                     </button>
                 </>
             ) : (
-                <>
+                    <>
+                        
                     <Link to="/login" className="btn btn-outline text-green-700">Login</Link>
                     <Link to="/register" className="btn btn-outline text-green-700">Register</Link>
                 </>

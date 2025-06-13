@@ -9,7 +9,7 @@ const FoodPage = () => {
     return (
         <div className="max-w-2xl mx-auto my-10 p-6 bg-white rounded-lg shadow">
             <img
-                src={resturent.image}
+                src={resturent.foodImage}
                 alt={resturent.name}
                 className="w-full h-64 object-cover rounded-lg mb-6"
             />

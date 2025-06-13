@@ -39,7 +39,7 @@ const TopFoods = () => {
                 {foods.map((item) => (
                     <div key={item._id} className="p-4 bg-base-100 rounded-xl shadow flex flex-col justify-between">
                         <div className="flex-1">
-                            <img className="rounded-xl" src={item.image} alt={item.name} />
+                            <img className="rounded-xl" src={item.foodImage} alt={item.name} />
                             <h3 className="text-xl font-semibold mt-5">{item.name}</h3>
                             <p>Purchased: {item.purchaseCount}</p>
                         </div>
