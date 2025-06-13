@@ -19,12 +19,15 @@ const AuthProvider = ({ children }) => {
     }
 
     const updateUser = (updatedData) => {
-        setLoading(true)
+        setLoading(true);
         return updateProfile(auth.currentUser, updatedData)
+            .then(() => auth.currentUser.reload()) 
             .then(() => {
-                setUser({ ...user, ...updatedData })
-            })
+                setUser(auth.currentUser); 
+                setLoading(false);
+            });
     }
+    
 
     const googleSignIn = () => {
         setLoading(true)

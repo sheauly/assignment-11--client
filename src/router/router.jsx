@@ -11,6 +11,8 @@ import Login from '../Pages/Login';
 import FoodPage from '../Pages/FoodPage';
 import AllFoods from '../Pages/AllFoods';
 import AddFood from '../Pages/AddFood';
+import FoodPurchase from '../Pages/FoodPurchase';
+import PrivateRoute from '../context/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -41,13 +43,22 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addFood',
-                element: <AddFood></AddFood>
+                element: <PrivateRoute>
+                    <AddFood></AddFood>
+                </PrivateRoute>
             },
             {
                 path: '/foodPage/:id',
                 element: <FoodPage></FoodPage>,
                 loader: ({params}) => fetch(`http://localhost:3000/resturent/${params.id}`)
             },
+            {
+                path: '/foodPurchase/:id',
+                element: <PrivateRoute>
+                    <FoodPurchase></FoodPurchase>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3000/resturent/${params.id}`)
+            }
            ]
     },
 ]);

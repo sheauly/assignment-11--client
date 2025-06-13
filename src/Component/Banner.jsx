@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import banner1 from '../assets/banner-1.avif';
 import banner2 from '../assets/banner-2.jpg';
 import banner3 from '../assets/banner-3.avif';
+
+const MotionLink = motion(Link);
 
 const Banner = () => {
     const textVariants = {
@@ -26,14 +29,14 @@ const Banner = () => {
         {
             id: 1,
             img: banner1,
-            title: 'Empower Your Community with VolunteerHub',
-            desc: 'Discover local and global volunteering opportunities that match your passion.',
+            title: 'Discover Delicious Foods!',
+            desc: 'Explore our variety of dishes made with love and the freshest ingredients.',
         },
         {
             id: 2,
             img: banner2,
-            title: 'Connect & Collaborate for a Better Tomorrow',
-            desc: 'Join hands with like-minded individuals to make a real impact.',
+            title: 'Experience a Garden Of Flavors in Every Bite',
+            desc: 'We With The Aspects Fish Professional Services.',
         },
         {
             id: 3,
@@ -78,13 +81,14 @@ const Banner = () => {
                             >
                                 {slide.desc}
                             </motion.p>
-                            <motion.button
+                            <MotionLink
+                                to="/allFoods"
                                 variants={buttonVariants}
                                 whileHover="hover"
                                 className="mt-6 btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
                             >
-                                Join Now
-                            </motion.button>
+                                Explore All Foods
+                            </MotionLink>
                         </div>
 
                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -99,5 +103,3 @@ const Banner = () => {
 };
 
 export default Banner;
-
-

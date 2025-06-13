@@ -41,7 +41,8 @@ const TopFoods = () => {
                         <div className="flex-1">
                             <img className="rounded-xl" src={item.image} alt={item.name} />
                             <h3 className="text-xl font-semibold mt-5">{item.name}</h3>
-                            <p>Purchased: {item.purchaseCount}</p>
+                            <p>Rating: 4</p>
+                            <p>Purchased: 23</p>
                         </div>
                         <div className="text-end">
                             <Link to={`/foodPage/${item._id}`} className="mt-2 bg-blue-500 text-white px-4 py-1 rounded">
