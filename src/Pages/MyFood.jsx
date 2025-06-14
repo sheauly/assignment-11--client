@@ -1,10 +1,11 @@
+
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 import Swal from 'sweetalert2';
 import Loader from './Loader';
-
+// import { Helmet } from 'react-helmet';
 
 const MyFood = () => {
     const { user } = useContext(AuthContext);
@@ -12,9 +13,10 @@ const MyFood = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+
         if (user?.email) {
             setLoading(true);
-            fetch(`http://localhost:3000/resturent/user/${user.email}`)
+            fetch(`http://localhost:3000/resturent-email?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setResturent(data);
@@ -26,6 +28,7 @@ const MyFood = () => {
                 });
         }
     }, [user]);
+   
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -50,15 +53,15 @@ const MyFood = () => {
                                 icon: "success"
                             });
 
-                            const resturentManagenent = resturent.filter(resturent => resturent._id !== id);
-                            setResturent(resturentManagenent);
+                            const remainingResturent = resturent.filter(resturent => resturent._id !== id);
+                            setResturent(remainingResturent);
                         }
                     })
                     .catch(error => {
-                        console.error("Error deleting resturent:", error);
+                        console.error("Error deleting listing:", error);
                         Swal.fire({
                             title: "Error!",
-                            text: "Failed to delete the resturent.",
+                            text: "Failed to delete the listing.",
                             icon: "error"
                         });
                     });
@@ -69,38 +72,42 @@ const MyFood = () => {
     if (loading) return <Loader></Loader>;
 
     return (
-        <div>
+        // {/* <Helmet>
+        //         <title>RoomMate-Finder || MyListing</title>
+        //     </Helmet> */}
+        
+        <div className="max-w-7xl mx-auto px-4 py-6">
          
-            <div className="max-w-7xl mx-auto px-4 py-6">
-                <h1 className="text-2xl font-bold mb-6 text-center">Resturent Managment</h1>
+                <h1 className="text-2xl font-bold mb-6 text-center">Resturent Management</h1>
                 <div className="overflow-x-auto rounded-lg border shadow">
                     <table className="min-w-full table-auto text-sm text-left whitespace-nowrap">
                         <thead className="bg-base-200 text-base-content">
                             <tr>
                                 <th className="px-4 py-3">Image</th>
-                                <th className="px-4 py-3">Title</th>
-                                <th className="px-4 py-3">Location</th>
-                                <th className="px-4 py-3">Rent</th>
-                                <th className="px-4 py-3">Actions</th>
+                                <th className="px-4 py-3">Name</th>
+                                <th className="px-4 py-3">Price</th>
+                                
                             </tr>
                         </thead>
                         <tbody className="divide-y">
-                            {resturent.length > 0 ? (
-                                resturent.map(post => (
+                        {resturent.length > 0 ? (
+                            
+                            resturent.map(post => (
+                                    
                                     <tr key={post._id} className="hover:bg-base-100 transition">
                                         <td className="px-4 py-3">
                                             <img
-                                                src={post.image}
+                                            src={post.foodImage}
                                                 alt="roommate"
                                                 className="w-16 h-16 object-cover rounded-lg border"
                                             />
                                         </td>
-                                        <td className="px-4 py-3 max-w-[150px] truncate">{post.title}</td>
-                                        <td className="px-4 py-3 max-w-[120px] truncate">{post.location}</td>
-                                        <td className="px-4 py-3 font-medium">{post.rent} BDT</td>
+                                        <td className="px-4 py-3 max-w-[150px] truncate">{post.name}</td>
+                                        <td className="px-4 py-3 max-w-[120px] truncate">{post.price}</td>
+                                       
                                         <td className="px-4 py-3">
                                             <div className="flex flex-wrap gap-2">
-                                                <Link to={`/updatedListing/${post._id}`}>
+                                            <Link to={`/myFoodUpdated/${post._id}`}>
                                                     <button className="btn btn-sm btn-outline btn-primary">Update</button>
                                                 </Link>
                                                 <button
@@ -123,8 +130,7 @@ const MyFood = () => {
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
+            </div> 
     );
 };
 
