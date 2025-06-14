@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const AddFood = () => {
     const [startDate, setStartDate] = useState(new Date());
     const { user } = useContext(AuthContext);
+    const [selectedDate, setSelectedDate] = useState(null);
 
     const handleAddJob = async (e) => {
         e.preventDefault();
@@ -24,6 +25,7 @@ const AddFood = () => {
             buyingDate: startDate.toLocaleDateString("en-GB"),
             foodImage: form.foodImage.value,
             foodOrigin: form.foodOrigin.value,
+            purchaseCount: parseInt(form.purchaseCount.value),
             addedBy: user?.displayName,
             addedByEmail: user?.email
         };
@@ -53,16 +55,23 @@ const AddFood = () => {
                 <input type="text" name='foodImage' className="input w-full" placeholder="Image URL" required />
                 <input type="text" name='foodOrigin' className="input w-full" placeholder="Origin (e.g. Italy)" />
                 <input type="text" name='description' className="input w-full" placeholder="Short Description" />
+                <input type="number" name='purchaseCount' className="input w-full" placeholder="Purchase Count" />
                 <input type="text" name='buyerName' className="input w-full" value={user?.displayName || ''} readOnly />
                 <input type="email" name='buyerEmail' className="input w-full" value={user?.email || ''} readOnly />
-                <input type="number" name='buyingDate' className="input w-full" placeholder="Buying Date" required />
                 
-                <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    dateFormat="dd/MM/yyyy"
-                    className="input input-bordered w-full"
-                />
+                
+                <div className='grid '>
+                    <label className="mb-2 font-medium">buyingDate</label>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={(date) => setSelectedDate(date)}
+                        dateFormat="yyyy-MM-dd"
+                        name='buyingDate'
+                        placeholderText="Select buyingDate"
+                        className="input input-bordered w-full"
+                        required
+                    />
+                </div>
 
                 <input type="submit" className="btn btn-primary mt-3" value="Add Food" />
             </form>

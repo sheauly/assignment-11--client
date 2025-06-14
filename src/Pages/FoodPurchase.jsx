@@ -66,7 +66,7 @@ const FoodPurchase = () => {
                     required
                 ></textarea>
 
-                <button type="submit" className="btn btn-primary w-full">Request</button>
+                <button type="submit" className="btn btn-primary w-full">Food</button>
             </form>
         </div>
     );
