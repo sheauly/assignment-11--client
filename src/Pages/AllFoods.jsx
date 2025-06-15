@@ -47,7 +47,7 @@ const AllFoods = () => {
                             <p>Category: {item.category}</p>
                             <Link
                                 to={`/foodPage/${item._id}`}
-                                className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded"
+                                className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 w-full text-center rounded-2xl"
                             >
                                 View Details
                             </Link>

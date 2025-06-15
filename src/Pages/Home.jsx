@@ -1,6 +1,9 @@
 import React, { Suspense } from 'react';
 import Banner from '../Component/Banner';
 import TopFoods from './TopFoods';
+import Testimonials from './Testimonials';
+import PopularCategories from './PopularCategories';
+// import Testimonials from './Testimonials';
 
 const Home = () => {
     
@@ -9,6 +12,13 @@ const Home = () => {
             <Banner></Banner>
             <section>
                 <TopFoods></TopFoods>
+               
+            </section>
+            <section className='mt-8'>
+            <Testimonials></Testimonials>
+            </section>
+            <section className='mt-8'>
+                <PopularCategories></PopularCategories>
             </section>
         </div>
     );

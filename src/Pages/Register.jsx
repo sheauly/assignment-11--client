@@ -4,6 +4,10 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 
+import registersLotte from '../../src/assets/lottees/registers.json'
+import Lottie from "lottie-react";
+import birdLottie from '../../src/assets/lottees/bird.json'
+
 
 const Register = () => {
     const { createUser, googleSigneIn } = useContext(AuthContext);
@@ -39,6 +43,8 @@ const Register = () => {
                 return updateProfile(user, {
                     displayName: name,
                     photoURL: photo,
+                    // email verify
+                    // sendEmailVerification(auth.currentUser)
                 });
             })
             .then(() => {
@@ -64,9 +70,16 @@ const Register = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center  px-4 py-10">
-          
+            <div className="">
+                <Lottie style={{ width: '400px' }} animationData={registersLotte} loop={true}></Lottie>
+                
+            </div>
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
+              
                 <h2 className="text-2xl font-bold text-center mb-6">Create an Account</h2>
+                <div className="justify-center items-center mp-4">
+                    <Lottie style={{ width: '100px' }} animationData={birdLottie}></Lottie>
+                </div>
 
                 <form onSubmit={handleRegister} className="space-y-4">
                     <div>

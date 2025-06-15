@@ -45,7 +45,7 @@ const TopFoods = () => {
                             <p>Purchased: 23</p>
                         </div>
                         <div className="text-end">
-                            <Link to={`/foodPage/${item._id}`} className="mt-2 bg-blue-500 text-white px-4 py-1 rounded">
+                            <Link to={`/foodPage/${item._id}`} className="mt-2 bg-blue-500 text-white w-full text-center px-4 py-1 rounded">
                                 Details
                             </Link>
                         </div>

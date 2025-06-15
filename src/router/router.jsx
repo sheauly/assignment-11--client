@@ -15,6 +15,7 @@ import FoodPurchase from '../Pages/FoodPurchase';
 import PrivateRoute from '../context/PrivateRoute';
 import MyFood from '../Pages/MyFood';
 import MyFoodUpdated from '../Pages/MyFoodUpdated';
+// import Testimonials from '../Pages/Testimonials';
 
 
 
@@ -76,7 +77,11 @@ const router = createBrowserRouter([
                     <MyFoodUpdated></MyFoodUpdated>
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:3000/resturent/${params.id}`),
-            }
+            },
+            // {
+            //     path: '/testimonials',
+            //     element: <Testimonials></Testimonials> 
+            // }
             
            ]
     },
