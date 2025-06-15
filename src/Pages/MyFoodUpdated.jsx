@@ -2,10 +2,12 @@ import React, { use, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import DatePicker from 'react-datepicker';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const MyFoodUpdated = () => {
 
-    const { name, price, foodImage, quantity, category, foodOrigin, description, purchaseCount, buyerName } = useLoaderData();
+    const { name, price, foodImage, quantity, category, foodOrigin, description, purchaseCount, buyerName, _id } = useLoaderData();
     const { user } = use(AuthContext);
     const [selectedDate, setSelectedDate] = useState(null);
 
@@ -14,13 +16,31 @@ const MyFoodUpdated = () => {
         const form = e.target;
         const formData = new FormData(form);
         const updatedFood = Object.fromEntries(formData.entries());
-        console.log(updatedFood);
+        axios.patch(`http://localhost:3000/resturent/${_id}`, updatedFood)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your data has been Updated",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                }
+            });
+        
+        
+       
     }
+
+   
+    
 
 
     return (
         <div className="max-w-3xl mx-auto p-4">
-            <h2 className="text-2xl font-bold mb-4">Add New Food Item</h2>
+            <h2 className="text-2xl font-bold  text-center mb-4">Update Food Item</h2>
             <form onSubmit={handleUpdatedResturent} className="grid gap-4">
                 <input type="text" name='name' defaultValue={name} className="input w-full" placeholder="Food Name" required />
                 <input type="text" name='category' defaultValue={category} className="input w-full" placeholder="Category" required />
@@ -48,7 +68,7 @@ const MyFoodUpdated = () => {
                 </div>
 
 
-                <input type="submit" className="btn btn-primary mt-3" value="Add Food" />
+                <input type="submit" className="btn btn-primary mt-3" value="Updated Food" />
 
             </form>
         </div>

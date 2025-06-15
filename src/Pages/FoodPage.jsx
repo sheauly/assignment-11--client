@@ -33,13 +33,20 @@ const FoodPage = () => {
             </div>
 
             {/* Button Section */}
-            <div className="text-center mt-8">
-                <Link to={`/foodPurchase/${resturent._id}`}>
-                    <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
-                        Purchase Now
-                    </button>
-                </Link>
-            </div>
+            {
+                resturent.purchaseCount === 0 ? (
+                    <p className='mt-6 text-red-600 font-semibold'>item is not available</p>
+
+                ) : (
+                    <div className="text-center mt-8">
+                        <Link to={`/foodPurchase/${resturent._id}`}>
+                            <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                                Purchase Now
+                            </button>
+                        </Link>
+                    </div>
+                )
+            }
         </div>
     );
 };

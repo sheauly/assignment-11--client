@@ -1,60 +1,62 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const TopFoods = () => {
+const AllFoods = () => {
     const [foods, setFoods] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:3000/resturent")
+        setLoading(true);
+        fetch(`http://localhost:3000/posts?search=${searchTerm}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log("Fetched Data:", data);
-
-                const allFoods = Array.isArray(data) ? data : data.foods || [];
-
-
-                const sortedFoods = allFoods
-                    .sort((a, b) => b.purchaseCount - a.purchaseCount)
-                    
-
-                setFoods(sortedFoods);
-
-
+                setFoods(data);
             })
             .catch((err) => console.error("Fetch error:", err))
             .finally(() => setLoading(false));
-    }, []);
-
-    if (loading) {
-        return <p className="text-center">Loading...</p>;
-    }
+    }, [searchTerm]);
 
     return (
-        <div>
-            <h2 className="text-2xl font-bold text-center my-4">
-                Total Foods: {foods.length}
+        <div className="px-4 py-6">
+            <h2 className="text-2xl font-bold text-center mb-4">
+                All Foods ({foods.length})
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-                {foods.map((item) => (
-                    <div key={item._id} className="p-4 bg-base-100 rounded-xl shadow flex flex-col justify-between">
-                        <div className="flex-1">
-                            <img className="rounded-xl" src={item.foodImage} alt={item.name} />
-                            <h3 className="text-xl font-semibold mt-5">{item.name}</h3>
-                            <p>Purchased: {item.purchaseCount}</p>
-                        </div>
-                        <div className="text-end">
-                            <Link to={`/foodPage/${item._id}`} className="mt-2 bg-blue-500 text-white px-4 py-1 rounded">
-                                Details
-                            </Link>
-                        </div>
-                    </div>
-                ))}
+
+            <div className="mb-6 max-w-md mx-auto">
+                <input
+                    type="text"
+                    placeholder="Search by food title..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full input input-bordered"
+                />
             </div>
 
-         
+            {loading ? (
+                <p className="text-center">Loading...</p>
+            ) : foods.length === 0 ? (
+                <p className="text-center text-gray-500">No foods found.</p>
+            ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {foods.map((item) => (
+                        <div key={item._id} className="p-4 bg-base-100 rounded-xl shadow">
+                            <img className="rounded-xl w-full h-48 object-cover" src={item.foodImage} alt={item.name} />
+                            <h3 className="text-xl font-semibold mt-4">{item.name}</h3>
+                            <p>Price: ${item.price}</p>
+                            <p>Category: {item.category}</p>
+                            <Link
+                                to={`/foodPage/${item._id}`}
+                                className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded"
+                            >
+                                View Details
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
 
-export default TopFoods;
+export default AllFoods;
