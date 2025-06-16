@@ -23,12 +23,7 @@ const Gallery = () => {
 
     return (
         <div>
-            <select defaultValue="Pick a font" className="select select-ghost">
-                <option disabled={true}>Pick a font</option>
-                <option>Inter</option>
-                <option>Poppins</option>
-                <option>Raleway</option>
-            </select>
+         
             {/* Page Title Banner */}
             <div
                 className="relative h-60 md:h-150 bg-cover bg-center flex items-center text-white justify-center"

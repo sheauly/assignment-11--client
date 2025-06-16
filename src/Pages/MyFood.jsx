@@ -16,7 +16,7 @@ const MyFood = () => {
 
         if (user?.email) {
             setLoading(true);
-            fetch(`http://localhost:3000/resturent-email?email=${user.email}`)
+            fetch(`https://assignment-11-server-resturent.vercel.app/resturent-email?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setResturent(data);
@@ -28,7 +28,7 @@ const MyFood = () => {
                 });
         }
     }, [user]);
-   
+
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -41,7 +41,7 @@ const MyFood = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/resturent/${id}`, {
+                fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -75,62 +75,62 @@ const MyFood = () => {
         // {/* <Helmet>
         //         <title>RoomMate-Finder || MyListing</title>
         //     </Helmet> */}
-        
+
         <div className="max-w-7xl mx-auto px-4 py-6">
-         
-                <h1 className="text-2xl font-bold mb-6 text-center">Resturent Management</h1>
-                <div className="overflow-x-auto rounded-lg border shadow">
-                    <table className="min-w-full table-auto text-sm text-left whitespace-nowrap">
-                        <thead className="bg-base-200 text-base-content">
-                            <tr>
-                                <th className="px-4 py-3">Image</th>
-                                <th className="px-4 py-3">Name</th>
-                                <th className="px-4 py-3">Price</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y">
+
+            <h1 className="text-2xl font-bold mb-6 text-center">Resturent Management</h1>
+            <div className="overflow-x-auto rounded-lg border shadow">
+                <table className="min-w-full table-auto text-sm text-left whitespace-nowrap">
+                    <thead className="bg-base-200 text-base-content">
+                        <tr>
+                            <th className="px-4 py-3">Image</th>
+                            <th className="px-4 py-3">Name</th>
+                            <th className="px-4 py-3">Price</th>
+
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y">
                         {resturent.length > 0 ? (
-                            
+
                             resturent.map(post => (
-                                    
-                                    <tr key={post._id} className="hover:bg-base-100 transition">
-                                        <td className="px-4 py-3">
-                                            <img
+
+                                <tr key={post._id} className="hover:bg-base-100 transition">
+                                    <td className="px-4 py-3">
+                                        <img
                                             src={post.foodImage}
-                                                alt="roommate"
-                                                className="w-16 h-16 object-cover rounded-lg border"
-                                            />
-                                        </td>
-                                        <td className="px-4 py-3 max-w-[150px] truncate">{post.name}</td>
-                                        <td className="px-4 py-3 max-w-[120px] truncate">{post.price}</td>
-                                       
-                                        <td className="px-4 py-3">
-                                            <div className="flex flex-wrap gap-2">
+                                            alt="roommate"
+                                            className="w-16 h-16 object-cover rounded-lg border"
+                                        />
+                                    </td>
+                                    <td className="px-4 py-3 max-w-[150px] truncate">{post.name}</td>
+                                    <td className="px-4 py-3 max-w-[120px] truncate">{post.price}</td>
+
+                                    <td className="px-4 py-3">
+                                        <div className="flex flex-wrap gap-2">
                                             <Link to={`/myFoodUpdated/${post._id}`}>
-                                                    <button className="btn btn-sm btn-outline btn-primary">Update</button>
-                                                </Link>
-                                                <button
-                                                    onClick={() => handleDelete(post._id)}
-                                                    className="btn btn-sm btn-outline btn-error"
-                                                >
-                                                    Delete
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan="5" className="text-center py-6 text-gray-500">
-                                        No resturent found.
+                                                <button className="btn btn-sm btn-outline btn-primary">Update</button>
+                                            </Link>
+                                            <button
+                                                onClick={() => handleDelete(post._id)}
+                                                className="btn btn-sm btn-outline btn-error"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
-                            )}
-                        </tbody>
-                    </table>
-                </div>
-            </div> 
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="5" className="text-center py-6 text-gray-500">
+                                    No resturent found.
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
 };
 

@@ -43,8 +43,7 @@ const Register = () => {
                 return updateProfile(user, {
                     displayName: name,
                     photoURL: photo,
-                    // email verify
-                    // sendEmailVerification(auth.currentUser)
+                  
                 });
             })
             .then(() => {
@@ -77,7 +76,7 @@ const Register = () => {
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
               
                 <h2 className="text-2xl font-bold text-center mb-6">Create an Account</h2>
-                <div className="justify-center items-center mp-4">
+                <div className="flex justify-center items-center mb-4">
                     <Lottie style={{ width: '100px' }} animationData={birdLottie}></Lottie>
                 </div>
 

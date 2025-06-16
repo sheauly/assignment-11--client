@@ -32,7 +32,7 @@ const AddFood = () => {
         };
 
         try {
-            const res = await axios.post('http://localhost:3000/resturent', newFood);
+            const res = await axios.post('https://assignment-11-server-resturent.vercel.app/resturent', newFood);
             if (res.data.insertedId || res.data.acknowledged) {
                 Swal.fire('Success', 'Food item added!', 'success');
                 form.reset();
@@ -59,8 +59,8 @@ const AddFood = () => {
                 <input type="number" name='purchaseCount' className="input w-full" placeholder="Purchase Count" />
                 <input type="text" name='buyerName' className="input w-full" value={user?.displayName || ''} readOnly />
                 <input type="email" name='buyerEmail' className="input w-full" value={user?.email || ''} readOnly />
-                
-                
+
+
                 <div className='grid '>
                     <label className="mb-2 font-medium">buyingDate</label>
                     <DatePicker
@@ -74,9 +74,9 @@ const AddFood = () => {
                     />
                 </div>
 
-                
-                    <input type="submit" className="btn btn-primary mt-3" value="Add Food" />
-                
+
+                <input type="submit" className="btn btn-primary mt-3" value="Add Food" />
+
             </form>
         </div>
     );

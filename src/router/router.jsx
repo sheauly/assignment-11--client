@@ -15,6 +15,7 @@ import FoodPurchase from '../Pages/FoodPurchase';
 import PrivateRoute from '../context/PrivateRoute';
 import MyFood from '../Pages/MyFood';
 import MyFoodUpdated from '../Pages/MyFoodUpdated';
+import Error from '../Pages/Error';
 // import Testimonials from '../Pages/Testimonials';
 
 
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         element: <RootLayOut></RootLayOut>,
         children: [
             {
-                index: true, 
+                index: true,
                 element: <Home></Home>
             },
             {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
                 path: '/login',
                 element: <Login></Login>
             },
-            
+
             {
                 path: 'gallery',
                 element: <Gallery></Gallery>
@@ -54,18 +55,18 @@ const router = createBrowserRouter([
             {
                 path: '/foodPage/:id',
                 element: <FoodPage></FoodPage>,
-                loader: ({params}) => fetch(`http://localhost:3000/resturent/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${params.id}`)
             },
             {
                 path: '/foodPurchase/:id',
                 element: <PrivateRoute>
                     <FoodPurchase></FoodPurchase>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/resturent/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${params.id}`)
             },
             {
                 path: '/myFood',
-                
+
                 element: <PrivateRoute>
                     <MyFood></MyFood>
                 </PrivateRoute>
@@ -76,16 +77,20 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyFoodUpdated></MyFoodUpdated>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/resturent/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${params.id}`),
             },
             // {
             //     path: '/testimonials',
             //     element: <Testimonials></Testimonials> 
             // }
-            
-           ]
+
+        ]
     },
+    {
+        path: '*/',
+        element:<Error></Error>
+    }
 ]);
-  
+
 
 export default router;

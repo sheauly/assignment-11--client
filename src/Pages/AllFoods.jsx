@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaSearchengin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const AllFoods = () => {
@@ -8,7 +9,7 @@ const AllFoods = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:3000/posts?search=${searchTerm}`)
+        fetch(`https://assignment-11-server-resturent.vercel.app/posts?search=${searchTerm}`)
             .then((res) => res.json())
             .then((data) => {
                 setFoods(data);
@@ -23,7 +24,7 @@ const AllFoods = () => {
                 All Foods ({foods.length})
             </h2>
 
-            <div className="mb-6 max-w-md mx-auto">
+            <div className="relative mb-6 max-w-md mx-auto shadow-2xl bg-white rounded-2xl flex">
                 <input
                     type="text"
                     placeholder="Search by food title..."
@@ -31,6 +32,9 @@ const AllFoods = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full input input-bordered"
                 />
+                <div className="absolute top-3 right-4">
+                    <FaSearchengin />
+                </div>
             </div>
 
             {loading ? (
@@ -47,7 +51,7 @@ const AllFoods = () => {
                             <p>Category: {item.category}</p>
                             <Link
                                 to={`/foodPage/${item._id}`}
-                                className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 w-full text-center rounded-2xl"
+                                className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 w-full text-center rounded"
                             >
                                 View Details
                             </Link>

@@ -40,14 +40,14 @@ const Login = () => {
             })
     }
     return (
-        <div className="flex justify-center items-center min-h-screen px-4 py-10 bg-base-200">
+        <div className="flex justify-center items-center min-h-screen px-4 py-10">
             <Lottie style={{ width: '400px' }} animationData={loginLottie}></Lottie>
             <div className="w-full max-w-sm sm:max-w-md md:max-w-lg bg-white shadow-xl rounded-xl p-6 sm:p-8">
                 <div className=''>
                     
                 </div>
                 <h2 className="text-2xl font-bold text-center mb-6">Login Your Account</h2>
-                <div>
+                <div className='flex justify-center items-center mb-4'>
                     <Lottie style={{width: '100px'}} animationData={clickLotte}></Lottie>
                 </div>
                 <form onSubmit={handleLogin} className="space-y-5">

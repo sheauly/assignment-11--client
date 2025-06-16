@@ -24,7 +24,7 @@ const Testimonials = () => {
     ];
 
     return (
-        <div className="py-14 bg-gray-50">
+        <div className="py-14">
             <motion.h2
                 className="text-3xl font-bold text-center mb-8"
                 initial={{ opacity: 0, y: -50 }}
