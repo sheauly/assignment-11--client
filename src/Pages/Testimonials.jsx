@@ -39,7 +39,7 @@ const Testimonials = () => {
                 {reviews.map((r) => (
                     <motion.div
                         key={r.id}
-                        className="bg-white p-6 rounded-xl shadow hover:shadow-md transition-all"
+                        className="bg-base-100 p-6 rounded-xl shadow hover:shadow-md transition-all"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: r.id * 0.2 }}

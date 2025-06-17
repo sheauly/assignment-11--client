@@ -15,7 +15,8 @@ import FoodPurchase from '../Pages/FoodPurchase';
 import PrivateRoute from '../context/PrivateRoute';
 import MyFood from '../Pages/MyFood';
 import MyFoodUpdated from '../Pages/MyFoodUpdated';
-import Error from '../Pages/Error';
+import Error404 from '../Pages/Error404';
+
 // import Testimonials from '../Pages/Testimonials';
 
 
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <FoodPurchase></FoodPurchase>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${params.id}`, { credentials: 'include' })
             },
             {
                 path: '/myFood',
@@ -87,8 +88,8 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: '*/',
-        element:<Error></Error>
+        path: '/*',
+        element: <Error404></Error404>
     }
 ]);
 

@@ -16,7 +16,7 @@ const MyFoodUpdated = () => {
         const form = e.target;
         const formData = new FormData(form);
         const updatedFood = Object.fromEntries(formData.entries());
-        axios.patch(`https://assignment-11-server-resturent.vercel.app/resturent/${_id}`, updatedFood)
+        axios.patch(`https://assignment-11-server-resturent.vercel.app/resturent/${_id}`, updatedFood, { withCredentials: true })
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
@@ -34,12 +34,9 @@ const MyFoodUpdated = () => {
 
     }
 
-
-
-
-
     return (
         <div className="max-w-3xl mx-auto p-4">
+
             <h2 className="text-2xl font-bold  text-center mb-4">Update Food Item</h2>
             <form onSubmit={handleUpdatedResturent} className="grid gap-4">
                 <input type="text" name='name' defaultValue={name} className="input w-full" placeholder="Food Name" required />

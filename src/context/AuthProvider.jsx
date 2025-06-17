@@ -21,13 +21,13 @@ const AuthProvider = ({ children }) => {
     const updateUser = (updatedData) => {
         setLoading(true);
         return updateProfile(auth.currentUser, updatedData)
-            .then(() => auth.currentUser.reload()) 
+            .then(() => auth.currentUser.reload())
             .then(() => {
-                setUser(auth.currentUser); 
+                setUser(auth.currentUser);
                 setLoading(false);
             });
     }
-    
+
 
     const googleSignIn = () => {
         setLoading(true)
@@ -44,13 +44,30 @@ const AuthProvider = ({ children }) => {
     }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log(currentUser);
+            if (currentUser) {
+
+                fetch("https://assignment-11-server-resturent.vercel.app/jwt", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    credentials: "include",
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => console.log(res.json))
+                    .then(data => console.log(data))
+                    .catch((err) => console.log(err));
+            }
             setUser(currentUser);
-            setLoading(false)
+            setLoading(false);
         });
         return () => {
-            unsubscribe()
-        }
-    }, [])
+            unsubscribe();
+        };
+    }, []);
+
+    console.log(user);
     const authData = {
         user,
         setUser,

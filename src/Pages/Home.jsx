@@ -3,12 +3,13 @@ import Banner from '../Component/Banner';
 import TopFoods from './TopFoods';
 import Testimonials from './Testimonials';
 import PopularCategories from './PopularCategories';
-// import Testimonials from './Testimonials';
+
 
 const Home = () => {
     
     return (
         <div>
+
             <Banner></Banner>
             <section>
                 <TopFoods></TopFoods>

@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 
 import Swal from 'sweetalert2';
 import Loader from './Loader';
-// import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 const MyFood = () => {
     const { user } = useContext(AuthContext);
@@ -16,7 +16,7 @@ const MyFood = () => {
 
         if (user?.email) {
             setLoading(true);
-            fetch(`https://assignment-11-server-resturent.vercel.app/resturent-email?email=${user.email}`)
+            fetch(`https://assignment-11-server-resturent.vercel.app/resturent-email?email=${user.email}`, { credentials: 'include' })
                 .then(res => res.json())
                 .then(data => {
                     setResturent(data);
@@ -42,7 +42,8 @@ const MyFood = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${id}`, {
-                    method: "DELETE"
+                    method: "DELETE",
+                    credentials: 'include',
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -72,20 +73,19 @@ const MyFood = () => {
     if (loading) return <Loader></Loader>;
 
     return (
-        // {/* <Helmet>
-        //         <title>RoomMate-Finder || MyListing</title>
-        //     </Helmet> */}
-
         <div className="max-w-7xl mx-auto px-4 py-6">
-
+            <Helmet>
+                <title>Management Resturent || myFood</title>
+            </Helmet>
             <h1 className="text-2xl font-bold mb-6 text-center">Resturent Management</h1>
             <div className="overflow-x-auto rounded-lg border shadow">
                 <table className="min-w-full table-auto text-sm text-left whitespace-nowrap">
-                    <thead className="bg-base-200 text-base-content">
+                    <thead className="bg-base-200  text-base-content">
                         <tr>
                             <th className="px-4 py-3">Image</th>
                             <th className="px-4 py-3">Name</th>
                             <th className="px-4 py-3">Price</th>
+                            <th className="px-4 py-3">Action</th>
 
                         </tr>
                     </thead>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -23,7 +24,9 @@ const Gallery = () => {
 
     return (
         <div>
-         
+            <Helmet>
+                <title>Management Resturent || Gellary</title>
+            </Helmet>
             {/* Page Title Banner */}
             <div
                 className="relative h-60 md:h-150 bg-cover bg-center flex items-center text-white justify-center"

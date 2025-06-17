@@ -31,7 +31,7 @@ const PopularCategories = () => {
                 {categories.map((c, idx) => (
                     <motion.div
                         key={idx}
-                        className="rounded-xl overflow-hidden shadow hover:shadow-lg transition bg-white"
+                        className="rounded-xl overflow-hidden shadow hover:shadow-lg transition bg-base-100"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: idx * 0.2 }}

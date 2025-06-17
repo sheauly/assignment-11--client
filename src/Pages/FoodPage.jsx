@@ -5,7 +5,7 @@ const FoodPage = () => {
     const resturent = useLoaderData();
 
     return (
-        <div className="max-w-5xl mx-auto my-10 p-6 bg-white rounded-lg shadow">
+        <div className="max-w-5xl mx-auto my-10 p-6 mb-5 bg-white rounded-lg shadow">
             <div className="flex flex-col md:flex-row items-center gap-8">
                 {/* Image Section */}
                 <div className="w-full md:w-1/2">
@@ -21,13 +21,12 @@ const FoodPage = () => {
                     <h1 className="text-3xl font-bold">{resturent.name}</h1>
                     <p className="text-lg text-gray-700">Category: {resturent.category}</p>
                     <p className="text-lg text-gray-700">Price: ${resturent.price}</p>
-                    <p className="text-lg text-gray-700">Rating: ⭐ {resturent.rating}</p>
+                    <p className="text-lg text-gray-700">Rating:⭐⭐⭐ {resturent.rating}</p>
                     <p className="text-lg text-gray-700">
                         Available: {resturent.available ? 'Yes' : 'No'}
                     </p>
                     <p className="text-gray-600">Purchased: {resturent.purchaseCount || 0} times</p>
-                    <p className="text-gray-800">
-                        {resturent.description || 'No description available.'}
+                    <p className="text-gray-800">Description: {resturent.description || 'No description available.'}
                     </p>
                 </div>
             </div>
