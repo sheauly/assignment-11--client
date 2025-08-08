@@ -11,6 +11,7 @@ const AddFood = () => {
     const [startDate, setStartDate] = useState(new Date());
     const { user } = useContext(AuthContext);
     const [selectedDate, setSelectedDate] = useState(null);
+    const { darkMode } = useContext(AuthContext)
 
     const handleAddJob = async (e) => {
         e.preventDefault();
@@ -51,7 +52,7 @@ const AddFood = () => {
             <Helmet>
                 <title>Management Resturent || addFood</title>
             </Helmet>
-            <h2 className="text-2xl font-bold mb-4">Add New Food Item</h2>
+            <h2 className={`${darkMode ? "text-gray-300" : "text-black"} text-lg`}>Add New Food Item</h2>
             <form onSubmit={handleAddJob} className="grid gap-4">
                 <input type="text" name='name' className="input w-full" placeholder="Food Name" required />
                 <input type="text" name='category' className="input w-full" placeholder="Category" required />
@@ -66,7 +67,7 @@ const AddFood = () => {
 
 
                 <div className='grid '>
-                    <label className="mb-2 font-medium">buyingDate</label>
+                    <label className={`${darkMode ? "text-gray-300" : "text-black"} text-lg`}>buyingDate</label>
                     <DatePicker
                         selected={selectedDate}
                         onChange={(date) => setSelectedDate(date)}

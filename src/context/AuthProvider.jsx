@@ -9,7 +9,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const [darkMode, setDarkMode] = useState(false);
 
     // console.log(user, loading)
 
@@ -77,7 +77,9 @@ const AuthProvider = ({ children }) => {
         loading,
         setLoading,
         updateUser,
-        googleSignIn
+        googleSignIn,
+        darkMode,
+        setDarkMode
     }
 
     return (

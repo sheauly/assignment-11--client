@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from "framer-motion";
 import { Typewriter } from 'react-simple-typewriter';
+import { AuthContext } from '../context/AuthContext';
 
 const PopularCategories = () => {
+    const { darkMode } = useContext(AuthContext);
     const categories = [
         { name: "Biryani", image: "https://i.ibb.co/xvWsRZ6/plate-biryani-with-bunch-food-it-505751-3819.jpg" },
         { name: "Pizza", image: "https://i.ibb.co/twWQw5mM/mixed-pizza-with-various-ingridients-140725-3790.jpg" },
@@ -12,7 +14,7 @@ const PopularCategories = () => {
 
     return (
         <div className="py-14 ">
-            <h2 className="text-3xl font-bold text-center mb-8">
+            <h2 className={`${darkMode ? "text-gray-300" : "text-black"} text-3xl text-center font-semibold`}>
                 <span className="text-primary mr-2">
                     <Typewriter
                         words={['Explore', 'Taste', 'Enjoy']}
@@ -27,7 +29,7 @@ const PopularCategories = () => {
                 Popular Categories
             </h2>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 mt-5">
                 {categories.map((c, idx) => (
                     <motion.div
                         key={idx}

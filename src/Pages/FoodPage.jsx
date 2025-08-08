@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const FoodPage = () => {
     const resturent = useLoaderData();
+    const { darkMode } = useContext(AuthContext);
 
     return (
         <div className="max-w-5xl mx-auto my-10 p-6 mb-5 bg-white rounded-lg shadow">
@@ -18,7 +20,7 @@ const FoodPage = () => {
 
                 {/* Text Section */}
                 <div className="w-full md:w-1/2 space-y-3">
-                    <h1 className="text-3xl font-bold">{resturent.name}</h1>
+                    <h1 className={`${darkMode ? "text-gray-300" : "text-black"} text-3xl font-bold `}>{resturent.name}</h1>
                     <p className="text-lg text-gray-700">Category: {resturent.category}</p>
                     <p className="text-lg text-gray-700">Price: ${resturent.price}</p>
                     <p className="text-lg text-gray-700">Rating:⭐⭐⭐ {resturent.rating}</p>
@@ -39,7 +41,7 @@ const FoodPage = () => {
                 ) : (
                     <div className="text-center mt-8">
                         <Link to={`/foodPurchase/${resturent._id}`}>
-                            <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+                            <button className="bg-blue-600 w-full text-white px-6 py-2 rounded">
                                 Purchase Now
                             </button>
                         </Link>

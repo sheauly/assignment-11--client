@@ -24,8 +24,8 @@ const Footer = () => {
                 {/* Contact Info */}
                 <div>
                     <h3 className="font-semibold mb-2">Contact Us</h3>
-                    <p>Email: support@dineease.com</p>
-                    <p>Phone: +123 456 7890</p>
+                    <p>Email: shulybd1245@gmail.com</p>
+                    <p>Phone: 01518471238</p>
                     <p>Location: Dhaka, Bangladesh</p>
                 </div>
 

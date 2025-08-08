@@ -11,6 +11,7 @@ const MyFood = () => {
     const { user } = useContext(AuthContext);
     const [resturent, setResturent] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { darkMode } = useContext(AuthContext)
 
     useEffect(() => {
 
@@ -77,8 +78,8 @@ const MyFood = () => {
             <Helmet>
                 <title>Management Resturent || myFood</title>
             </Helmet>
-            <h1 className="text-2xl font-bold mb-6 text-center">Resturent Management</h1>
-            <div className="overflow-x-auto rounded-lg border shadow">
+            <h1 className={`${darkMode ? "text-gray-300" : "text-black"} text-3xl font-semibold text-center`}>Resturent Management</h1>
+            <div className="overflow-x-auto rounded-lg border mt-5 shadow">
                 <table className="min-w-full table-auto text-sm text-left whitespace-nowrap">
                     <thead className="bg-base-200  text-base-content">
                         <tr>
@@ -102,8 +103,8 @@ const MyFood = () => {
                                             className="w-16 h-16 object-cover rounded-lg border"
                                         />
                                     </td>
-                                    <td className="px-4 py-3 max-w-[150px] truncate">{post.name}</td>
-                                    <td className="px-4 py-3 max-w-[120px] truncate">{post.price}</td>
+                                    <td className={`${darkMode ? "text-gray-300" : "text-black"} text-lg`}>{post.name}</td>
+                                    <td className={`${darkMode ? "text-gray-300" : "text-black"} text-lg`}>{post.price}</td>
 
                                     <td className="px-4 py-3">
                                         <div className="flex flex-wrap gap-2">

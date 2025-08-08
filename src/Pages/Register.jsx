@@ -14,6 +14,7 @@ const Register = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/";
+    const { darkMode } = useContext(AuthContext);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -74,7 +75,7 @@ const Register = () => {
 
             {/* Form */}
             <div className="w-full max-w-md bg-white md:p-8 rounded-xl shadow-xl">
-                <h2 className="text-2xl font-bold text-center mb-4">Create an Account Register</h2>
+                <h2 className={`${darkMode ? "text-gray-300" : "text-black"} text-3xl font-semibold text-center`}>Create an Account Register</h2>
 
                 <div className="flex justify-center mb-4">
                     <Lottie animationData={birdLottie} loop className="w-20" />
@@ -141,12 +142,12 @@ const Register = () => {
                     </button>
                 </form>
 
-                <div className="divider">OR</div>
+                <div className={`${darkMode ? "text-gray-300" : "text-black"} text-lg font-semibold text-center`}>OR</div>
 
                 {/* Google Sign In */}
                 <button
                     onClick={handleGoogleLogin}
-                    className="btn btn-outline w-full flex items-center rounded-3xl gap-2"
+                    className={`${darkMode ? "text-gray-300" : "text-black"} text-lg font-semibold text-center btn btn-outline w-full flex items-center rounded-3xl gap-2`}
                 >
                     <svg
                         aria-label="Google logo"
@@ -167,7 +168,7 @@ const Register = () => {
                 </button>
 
                 {/* Login Link */}
-                <p className="mt-4 text-center text-sm">
+                <p className={`${darkMode ? "text-gray-300" : "text-black"} `}>
                     Already have an account?{" "}
                     <Link to="/login" className="text-blue-600 hover:underline font-medium">
                         Login here

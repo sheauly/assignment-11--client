@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from "framer-motion";
+import { AuthContext } from '../context/AuthContext';
 
 const Testimonials = () => {
+    const { darkMode } = useContext(AuthContext);
     const reviews = [
         {
             id: 1,
@@ -26,7 +28,7 @@ const Testimonials = () => {
     return (
         <div className="py-14">
             <motion.h2
-                className="text-3xl font-bold text-center mb-8"
+                className={`${darkMode ? "text-gray-300" : "text-black"} text-2xl text-center font-semibold`}
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -35,7 +37,7 @@ const Testimonials = () => {
                 What Our Customers Say
             </motion.h2>
 
-            <div className="grid md:grid-cols-3 gap-6 px-6">
+            <div className="grid md:grid-cols-3 gap-6 mt-5 px-6">
                 {reviews.map((r) => (
                     <motion.div
                         key={r.id}
@@ -46,7 +48,7 @@ const Testimonials = () => {
                         viewport={{ once: true }}
                     >
                         <img src={r.image} alt={r.name} className="w-16 h-16 rounded-full mb-4 mx-auto" />
-                        <p className="text-sm text-gray-600 italic">"{r.review}"</p>
+                        <p className={` text-lg`}>{r.review}"</p>
                         <p className="mt-4 text-center font-semibold">{r.name}</p>
                     </motion.div>
                 ))}

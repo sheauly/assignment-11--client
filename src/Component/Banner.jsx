@@ -29,20 +29,20 @@ const Banner = () => {
         {
             id: 1,
             img: banner1,
-            title: 'Discover Delicious Foods!',
-            desc: 'Explore our variety of dishes made with love and the freshest ingredients.',
+            title: 'Your Plate, Our Passion',
+            desc: 'Experience the perfect blend of spices, flavors, and love in every bite you take.',
         },
         {
             id: 2,
             img: banner2,
-            title: 'Experience a Garden Of Flavors in Every Bite',
-            desc: 'We With The Aspects Fish Professional Services.',
+            title: 'A Journey of Flavors Awaits',
+            desc: 'Indulge in a variety of cuisines crafted by our expert chefs to satisfy every craving.',
         },
         {
             id: 3,
             img: banner3,
-            title: 'Be the Change You Wish to See',
-            desc: 'Build leadership skills, friendships, and memories through service.',
+            title: 'Taste the Best, Served Fresh!',
+            desc: 'From farm to table — enjoy mouthwatering dishes made with the freshest ingredients, every single day.',
         },
     ];
 
@@ -63,9 +63,9 @@ const Banner = () => {
                             transition={{ duration: 10, repeat: Infinity }}
                         />
 
-                        <div className="absolute flex flex-col justify-center items-start h-full w-full px-10 md:px-24 text-white bg-black/40">
+                        <div className="absolute flex flex-col justify-center items-center h-full w-full px-10 md:px-24 text-white bg-black/40">
                             <motion.h1
-                                className="text-3xl md:text-5xl font-bold"
+                                className="text-3xl text-center md:text-5xl font-bold"
                                 variants={textVariants}
                                 initial="hidden"
                                 animate="visible"
@@ -73,7 +73,7 @@ const Banner = () => {
                                 {slide.title}
                             </motion.h1>
                             <motion.p
-                                className="mt-4 text-lg md:text-xl max-w-xl"
+                                className="mt-4 text-center text-lg md:text-xl max-w-xl"
                                 variants={textVariants}
                                 initial="hidden"
                                 animate="visible"
@@ -85,7 +85,7 @@ const Banner = () => {
                                 to="/allFoods"
                                 variants={buttonVariants}
                                 whileHover="hover"
-                                className="mt-6 btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
+                                className="mt-6 btn text-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
                             >
                                 Explore All Foods
                             </MotionLink>

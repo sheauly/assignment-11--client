@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // ✅ useNavigate comes from react-router-dom
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import Lottie from 'lottie-react';
 import loginLottie from '../../src/assets/lottees/login.json';
@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet';
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const { darkMode } = useContext(AuthContext);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -50,7 +51,7 @@ const Login = () => {
 
             {/* Login Form */}
             <div className="w-full max-w-md bg-white shadow-xl rounded-xl p-6 sm:p-8">
-                <h2 className="text-2xl font-bold text-center mb-6">Login Your Account</h2>
+                <h2 className={`${darkMode ? "text-gray-300" : "text-black"} text-3xl font-semibold text-center`}>Login Your Account</h2>
 
                 <div className="flex justify-center items-center mb-4">
                     <Lottie className="w-24" animationData={clickLotte} />
@@ -59,7 +60,7 @@ const Login = () => {
                 <form onSubmit={handleLogin} className="space-y-5">
                     {/* Email */}
                     <div>
-                        <label htmlFor="email" className="label">Email</label>
+                        <label htmlFor="email" className={`${darkMode ? "text-gray-300" : "text-black"} text-lg font-semibold text-center`}>Email</label>
                         <input
                             id="email"
                             name="email"
@@ -72,7 +73,7 @@ const Login = () => {
 
                     {/* Password */}
                     <div>
-                        <label htmlFor="password" className="label">Password</label>
+                        <label htmlFor="password" className={`${darkMode ? "text-gray-300" : "text-black"} text-lg font-semibold text-center`}>Password</label>
                         <input
                             id="password"
                             name="password"
@@ -86,7 +87,7 @@ const Login = () => {
                     {/* Submit Button */}
                     <button type="submit" className="btn btn-neutral w-full rounded-3xl">Login</button>
 
-                    <div className="divider">OR</div>
+                    <div className={`${darkMode ? "text-gray-300" : "text-black"} text-lg font-semibold text-center`}>OR</div>
 
                     {/* Google Login */}
                     <button
@@ -107,7 +108,7 @@ const Login = () => {
                     </button>
 
                     {/* Register Link */}
-                    <p className="text-center text-sm pt-5">
+                    <p className={`${darkMode ? "text-gray-300" : "text-black"} `}>
                         Don't have an account?{' '}
                         <Link to="/register" className="text-green-700 font-medium">
                             Register
