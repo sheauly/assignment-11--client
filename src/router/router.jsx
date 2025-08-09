@@ -17,6 +17,8 @@ import MyFood from '../Pages/MyFood';
 import MyFoodUpdated from '../Pages/MyFoodUpdated';
 import Error404 from '../Pages/Error404';
 import MyOrders from '../Pages/MyOrders';
+import DashboardLayOut from '../layOut/DashboardLayOut';
+import DashboardHome from '../Dashboard/DashboardHome';
 
 // import Testimonials from '../Pages/Testimonials';
 
@@ -90,6 +92,18 @@ const router = createBrowserRouter([
 
         ]
 
+    },
+    {
+        path: "/dashboard",
+        element: <PrivateRoute>
+            <DashboardLayOut></DashboardLayOut>
+        </PrivateRoute>,
+        children: [
+            {
+                index: true,
+                element: <DashboardHome></DashboardHome>
+            }
+        ]
     },
     {
         path: '/*',
