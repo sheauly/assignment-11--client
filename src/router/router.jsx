@@ -90,18 +90,7 @@ const router = createBrowserRouter([
                     <MyOrders></MyOrders>
                 </PrivateRoute>
             },
-            // {
-            //     path: "/SalesPromotion",
-            //     element: <SalesPromotion></SalesPromotion>
-            // },
-            // {
-            //     path: "/reviews",
-            //     element: <Review></Review>
-            // },
-            // {
-            //     path: "/newsLetter",
-            //     element: <NewsLetter></NewsLetter>
-            // }
+
 
         ]
 

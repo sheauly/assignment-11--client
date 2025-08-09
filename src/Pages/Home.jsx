@@ -22,9 +22,9 @@ const Home = () => {
             <section>
                 <SalesPromotion></SalesPromotion>
             </section>
-            <section>
+            {/* <section>
                 <Review></Review>
-            </section>
+            </section> */}
 
             <section className='mt-8'>
                 <Testimonials></Testimonials>

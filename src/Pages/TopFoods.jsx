@@ -54,7 +54,7 @@ const TopFoods = () => {
                             <img className="rounded-xl" src={item.foodImage} alt={item.name} />
                             <h3 className="text-xl font-semibold mt-5">{item.name}</h3>
                             <p>🔊Category: {item.category}</p>
-                            <p className={`${darkMode ? "text-gray-300" : "text-white"} text-lg`}>⭐Purchased: <span className="btn bg-amber-300 h-5 w-10 rounded-2xl">{item.purchaseCount}</span></p>
+                            <p className={`${darkMode ? "text-gray-600" : "text-gray-400"} text-lg`}>⭐Purchased: <span className="btn bg-amber-300 h-5 w-10 rounded-2xl">{item.purchaseCount}</span></p>
                             <p className="text-gray-400">📒Description: {item.description}</p>
                         </div>
                         <div className="text-end">
