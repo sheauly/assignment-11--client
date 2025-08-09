@@ -1,6 +1,19 @@
+import { useState } from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
+    const [email, setEmail] = useState();
+
+    const handleSubscribe = (e) => {
+
+        e.preventDefault();
+        if (!email) {
+            alert("Please enter your email addres!");
+            return;
+        }
+        alert("Subscription successfull")
+        setEmail("");
+    }
     return (
         <footer className="bg-base-200 text-base-content px-4 py-10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -29,14 +42,29 @@ const Footer = () => {
                     <p>Location: Dhaka, Bangladesh</p>
                 </div>
 
-                {/* Socials */}
+                {/* Socials + Newsletter */}
                 <div>
                     <h3 className="font-semibold mb-2">Follow Us</h3>
-                    <div className="flex space-x-4 text-2xl">
+                    <div className="flex space-x-4 text-2xl mb-4">
                         <a><FaFacebook className="hover:text-blue-600" /></a>
                         <a><FaInstagram className="hover:text-pink-500" /></a>
                         <a><FaTwitter className="hover:text-blue-400" /></a>
                     </div>
+
+                    {/* Newsletter */}
+                    <h3 className="font-semibold mb-2">Subscribe to Newsletter</h3>
+                    <form onSubmit={handleSubscribe} className="flex gap-2">
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="input input-bordered w-full"
+                        />
+                        <button type="submit" className="btn btn-primary">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
             </div>
 

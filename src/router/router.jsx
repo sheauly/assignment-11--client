@@ -20,6 +20,7 @@ import MyOrders from '../Pages/MyOrders';
 import DashboardLayOut from '../layOut/DashboardLayOut';
 import DashboardHome from '../Dashboard/DashboardHome';
 
+
 // import Testimonials from '../Pages/Testimonials';
 
 
@@ -88,7 +89,19 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyOrders></MyOrders>
                 </PrivateRoute>
-            }
+            },
+            // {
+            //     path: "/SalesPromotion",
+            //     element: <SalesPromotion></SalesPromotion>
+            // },
+            // {
+            //     path: "/reviews",
+            //     element: <Review></Review>
+            // },
+            // {
+            //     path: "/newsLetter",
+            //     element: <NewsLetter></NewsLetter>
+            // }
 
         ]
 

@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
                     body: JSON.stringify(currentUser),
                 })
                     .then((res) => console.log(res.json))
-                    .then(data => console.log(data))
+                    .then((data) => console.log(data))
                     .catch((err) => console.log(err));
             }
             setUser(currentUser);
