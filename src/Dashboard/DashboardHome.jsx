@@ -45,13 +45,13 @@ const DashboardHome = () => {
             <div className="bg-white p-5 rounded-lg shadow mt-6">
                 <h2 className={`${darkMode ? "text-gray-300" : "text-black"}font-bold text-2xl`}>Quick Actions</h2>
                 <div className="flex flex-wrap mt-3 gap-3">
-                    <button className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+                    <Link to="/dashboard/addFood" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
                         AddFood
-                    </button>
-                    <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                    </Link>
+                    <Link to="/dashboard/myFood" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
                         MyFood
-                    </button>
-                    <Link to="/myProfile" className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800">
+                    </Link>
+                    <Link to="/dashboard/myProfile" className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800">
                         View Profile
                     </Link>
                 </div>

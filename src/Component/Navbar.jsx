@@ -4,6 +4,9 @@ import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 import logoImage from '../assets/navLogo.png';
 
+// react-icons থেকে প্রয়োজনীয় আইকন ইমপোর্ট
+import { FaHome, FaUtensils, FaImages, FaTachometerAlt } from 'react-icons/fa';
+
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -28,69 +31,40 @@ const Navbar = () => {
             <li>
                 <NavLink
                     to="/"
-                    className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
+                    className={({ isActive }) => isActive ? "text-secondary font-semibold flex items-center gap-2" : "text-green-700 hover:text-green-700 flex items-center gap-2"}
                 >
-                    Home
+                    <FaHome /> Home
                 </NavLink>
             </li>
             <li>
                 <NavLink
                     to="/allFoods"
-                    className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
+                    className={({ isActive }) => isActive ? "text-secondary font-semibold flex items-center gap-2" : "text-green-700 hover:text-green-700 flex items-center gap-2"}
                 >
-                    AllFoods
+                    <FaUtensils /> AllFoods
                 </NavLink>
             </li>
             <li>
                 <NavLink
                     to="/gallery"
-                    className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
+                    className={({ isActive }) => isActive ? "text-secondary font-semibold flex items-center gap-2" : "text-green-700 hover:text-green-700 flex items-center gap-2"}
                 >
-                    Gallery
+                    <FaImages /> Gallery
                 </NavLink>
             </li>
 
             {user && (
-                <>
-                    {/* <li>
-                        <NavLink
-                            to="/addFood"
-                            className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
-                        >
-                            AddFood
-                        </NavLink>
-                    </li> */}
-                    {/* <li>
-                        <NavLink
-                            to="/myFood"
-                            className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
-                        >
-                            MyFood
-                        </NavLink>
-                    </li> */}
-                    {/* <li>
-                        <NavLink
-                            to="/myOrders"
-                            className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
-                        >
-                            MyOrders
-                        </NavLink>
-                    </li> */}
-
-                    {/* New Dashboard Link */}
-                    <li>
-                        <NavLink
-                            to="/dashboard"
-                            className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
-                        >
-                            Dashboard
-                        </NavLink>
-                    </li>
-                </>
+                <li>
+                    <NavLink
+                        to="/dashboard"
+                        className={({ isActive }) => isActive ? "text-secondary font-semibold flex items-center gap-2" : "text-green-700 hover:text-green-700 flex items-center gap-2"}
+                    >
+                        <FaTachometerAlt /> Dashboard
+                    </NavLink>
+                </li>
             )}
         </>
     );
-
 
     return (
         <div className="bg-blue-200 rounded-2xl shadow-sm sticky top-0 z-50">

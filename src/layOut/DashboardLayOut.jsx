@@ -1,4 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
+import { FaHome, FaUser, FaPlusCircle, FaUtensils, FaShoppingCart } from "react-icons/fa";
 
 const DashboardLayout = () => {
     return (
@@ -10,31 +11,30 @@ const DashboardLayout = () => {
                 </h2>
                 <ul className="space-y-2">
                     <li>
-                        <Link to="/" className="block hover:bg-green-600 p-2 rounded">
-                            Back to Home
+                        <Link to="/" className="flex items-center gap-2 hover:bg-green-600 p-2 rounded">
+                            <FaHome /> Back to Home
                         </Link>
                     </li>
                     <li>
-                        <Link to="/dashboard/myProfile" className="block hover:bg-green-600 p-2 rounded">
-                            My Profile
+                        <Link to="/dashboard/myProfile" className="flex items-center gap-2 hover:bg-green-600 p-2 rounded">
+                            <FaUser /> My Profile
                         </Link>
                     </li>
                     <li>
-                        <Link to="/dashboard/addFood" className="block hover:bg-green-600 p-2 rounded">
-                            AddFood
+                        <Link to="/dashboard/addFood" className="flex items-center gap-2 hover:bg-green-600 p-2 rounded">
+                            <FaPlusCircle /> AddFood
                         </Link>
                     </li>
                     <li>
-                        <Link to="/dashboard/myFood" className="block hover:bg-green-600 p-2 rounded">
-                            MyFood
+                        <Link to="/dashboard/myFood" className="flex items-center gap-2 hover:bg-green-600 p-2 rounded">
+                            <FaUtensils /> MyFood
                         </Link>
                     </li>
                     <li>
-                        <Link to="/dashboard/myOrders" className="block hover:bg-green-600 p-2 rounded">
-                            My Orders
+                        <Link to="/dashboard/myOrders" className="flex items-center gap-2 hover:bg-green-600 p-2 rounded">
+                            <FaShoppingCart /> My Orders
                         </Link>
                     </li>
-
                 </ul>
             </div>
 
