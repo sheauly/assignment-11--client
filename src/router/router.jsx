@@ -10,15 +10,17 @@ import Register from '../Pages/Register';
 import Login from '../Pages/Login';
 import FoodPage from '../Pages/FoodPage';
 import AllFoods from '../Pages/AllFoods';
-import AddFood from '../Pages/AddFood';
+
 import FoodPurchase from '../Pages/FoodPurchase';
 import PrivateRoute from '../context/PrivateRoute';
-import MyFood from '../Pages/MyFood';
 import MyFoodUpdated from '../Pages/MyFoodUpdated';
 import Error404 from '../Pages/Error404';
-import MyOrders from '../Pages/MyOrders';
 import DashboardLayOut from '../layOut/DashboardLayOut';
 import DashboardHome from '../Dashboard/DashboardHome';
+import MyProfile from '../Dashboard/MyProfile';
+import AddFood from '../Dashboard/AddFood';
+import MyFood from '../Dashboard/myFood';
+import MyOrders from '../Dashboard/MyOrders';
 
 
 // import Testimonials from '../Pages/Testimonials';
@@ -51,12 +53,7 @@ const router = createBrowserRouter([
                 path: '/allFoods',
                 element: <AllFoods></AllFoods>
             },
-            {
-                path: '/addFood',
-                element: <PrivateRoute>
-                    <AddFood></AddFood>
-                </PrivateRoute>
-            },
+
             {
                 path: '/foodPage/:id',
                 element: <FoodPage></FoodPage>,
@@ -69,14 +66,7 @@ const router = createBrowserRouter([
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${params.id}`, { credentials: 'include' })
             },
-            {
-                path: '/myFood',
 
-                element: <PrivateRoute>
-                    <MyFood></MyFood>
-                </PrivateRoute>
-
-            },
             {
                 path: '/myFoodUpdated/:id',
                 element: <PrivateRoute>
@@ -84,12 +74,7 @@ const router = createBrowserRouter([
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`https://assignment-11-server-resturent.vercel.app/resturent/${params.id}`),
             },
-            {
-                path: "/myOrders",
-                element: <PrivateRoute>
-                    <MyOrders></MyOrders>
-                </PrivateRoute>
-            },
+
 
 
         ]
@@ -104,7 +89,30 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <DashboardHome></DashboardHome>
-            }
+            },
+            {
+                path: "myProfile",
+                element: <MyProfile></MyProfile>
+            },
+            {
+                path: "addFood",
+                element: <AddFood></AddFood>
+            },
+            {
+                path: 'myFood',
+
+                element:
+                    <MyFood></MyFood>
+
+
+            },
+            {
+                path: "myOrders",
+                element: <PrivateRoute>
+                    <MyOrders></MyOrders>
+                </PrivateRoute>
+            },
+
         ]
     },
     {

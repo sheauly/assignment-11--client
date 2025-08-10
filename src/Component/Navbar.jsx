@@ -52,30 +52,30 @@ const Navbar = () => {
 
             {user && (
                 <>
-                    <li>
+                    {/* <li>
                         <NavLink
                             to="/addFood"
                             className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
                         >
                             AddFood
                         </NavLink>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                         <NavLink
                             to="/myFood"
                             className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
                         >
                             MyFood
                         </NavLink>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                         <NavLink
                             to="/myOrders"
                             className={({ isActive }) => isActive ? "text-secondary font-semibold" : "text-green-700 hover:text-green-700"}
                         >
                             MyOrders
                         </NavLink>
-                    </li>
+                    </li> */}
 
                     {/* New Dashboard Link */}
                     <li>

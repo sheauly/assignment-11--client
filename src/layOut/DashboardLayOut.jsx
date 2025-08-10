@@ -14,18 +14,23 @@ const DashboardLayout = () => {
                             Back to Home
                         </Link>
                     </li>
-                    {/* <li>
-                        <Link to="/dashboard" className="block hover:bg-green-600 p-2 rounded">
-                            Overview
-                        </Link>
-                    </li> */}
                     <li>
-                        <Link to="/addFood" className="block hover:bg-green-600 p-2 rounded">
-                            Add Food
+                        <Link to="/dashboard/myProfile" className="block hover:bg-green-600 p-2 rounded">
+                            My Profile
                         </Link>
                     </li>
                     <li>
-                        <Link to="/myOrders" className="block hover:bg-green-600 p-2 rounded">
+                        <Link to="/dashboard/addFood" className="block hover:bg-green-600 p-2 rounded">
+                            AddFood
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/dashboard/myFood" className="block hover:bg-green-600 p-2 rounded">
+                            MyFood
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/dashboard/myOrders" className="block hover:bg-green-600 p-2 rounded">
                             My Orders
                         </Link>
                     </li>
