@@ -48,12 +48,12 @@ const Banner = () => {
 
     return (
         <div className="w-full overflow-hidden">
-            <div className="carousel w-full">
+            <div className="carousel w-full overflow-hidden">
                 {slides.map((slide, index) => (
                     <div
                         id={`slide${slide.id}`}
                         key={slide.id}
-                        className="carousel-item relative w-full"
+                        className="carousel-item relative w-full overflow-hidden"
                     >
                         <motion.img
                             src={slide.img}

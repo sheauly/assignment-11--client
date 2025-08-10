@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     const [email, setEmail] = useState();
@@ -27,10 +28,30 @@ const Footer = () => {
                 <div>
                     <h3 className="font-semibold mb-2">Quick Links</h3>
                     <ul className="space-y-1">
-                        <li><a className="link link-hover">Home</a></li>
-                        <li><a className="link link-hover">Menu</a></li>
-                        <li><a className="link link-hover">Orders</a></li>
-                        <li><a className="link link-hover">Contact</a></li>
+                        <li>
+                            <NavLink
+                                to="/"
+
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/allFoods"
+
+                            >
+                                AllFoods
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/gallery"
+
+                            >
+                                Gallery
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
 
@@ -38,7 +59,7 @@ const Footer = () => {
                 <div>
                     <h3 className="font-semibold mb-2">Contact Us</h3>
                     <p>Email: shulybd1245@gmail.com</p>
-                    <p>Phone: 01518471238</p>
+                    <p>Phone: +8801757321528</p>
                     <p>Location: Dhaka, Bangladesh</p>
                 </div>
 
